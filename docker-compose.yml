@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+        worker:
+                build: .
+                #ports: 33:33
+
