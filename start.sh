@@ -1,6 +1,7 @@
-mkdir front-end back-end -p
+mkdir frontend backend -p
 
-git clone git@github.com:parsarsm/publisher-env-frontend.git front-end
-git clone git@github.com:parsarsm/publisher-env-backend.git back-end
+cd backend && git clone https://github.com/parsarsm/publisher-env-backend.git
+cd ../frontend && git clone https://github.com/parsarsm/publisher-env-frontend.git
 
-docker-compose up -d
+
+

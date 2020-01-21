@@ -1,7 +1,17 @@
 version: '3'
 
 services:
-        worker:
-                build: .
-                #ports: 33:33
-
+        #back:
+        #build: backend
+        #ports:
+        #- "85:85"
+        #volumes:
+        #-  ./frontend/publisher-env-frontend/package*.json:./ 
+                          
+        front:
+                build: frontend
+                ports:
+                        - "80:3000"
+                volumes:
+                        -  ./frontend/publisher-env-frontend/:/usr/src/app/
+                        -  /usr/src/app/node_modules 
