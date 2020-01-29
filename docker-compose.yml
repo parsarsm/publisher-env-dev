@@ -1,12 +1,24 @@
 version: '3'
 
 services:
-        #back:
-        #build: backend
-        #ports:
-        #- "85:85"
-        #volumes:
-        #-  ./frontend/publisher-env-frontend/package*.json:./ 
+        db:
+                image: mysql:8
+                ports:
+                        - '3306:3306'
+                environment:
+                        MYSQL_DATABASE: 'db'
+                        MYSQL_USER: 'root'
+                        MYSQL_PASSWORD: 'password'
+                        MYSQL_ROOT_PASSWORD: 'password'
+        back:
+                build: backend
+                #command: python manage.py runserver 0.0.0.0:8000
+                volumes:
+                        - ./backend/publisher-env-backend/:/app
+                ports:
+                        - "8000:8000"
+                depends_on:
+                        - db 
                           
         front:
                 build: frontend

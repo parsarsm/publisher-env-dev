@@ -1,0 +1,11 @@
+FROM python:3.8.1
+
+ENV PYTHONUNBUFFERED 1
+RUN mkdir /app
+WORKDIR /app
+ADD ./publisher-env-backend/requirements.txt /app/
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+ADD ./publisher-env-backend /app/
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
