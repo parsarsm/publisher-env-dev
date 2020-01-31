@@ -2,16 +2,9 @@ version: '3'
 
 services:
         db:
-                image: mysql:8
-                ports:
-                        - '3306:3306'
-                environment:
-                        MYSQL_DATABASE: 'db'
-                        MYSQL_USER: 'root'
-                        MYSQL_PASSWORD: 'password'
-                        MYSQL_ROOT_PASSWORD: 'password'
+                image: postgres
                 volumes:
-                        - dbdatavolume:/var/lib/mysql
+                        - dbdatavolume:/var/lib/postgresql/data
         back:
                 build: backend
                 #command: python manage.py runserver 0.0.0.0:8000
